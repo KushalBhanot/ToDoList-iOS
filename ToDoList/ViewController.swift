@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.tasks = UserDefaults.standard.stringArray(forKey: "tasks") ?? []
         title = "To Do List"
         
         view.addSubview(table)
@@ -45,6 +46,9 @@ class ViewController: UIViewController, UITableViewDataSource {
             if let field = alert.textFields?.first {
                 if let text = field.text, !text.isEmpty {
                     DispatchQueue.main.async {
+                        var currentTasks = UserDefaults.standard.stringArray(forKey: "tasks") ?? []
+                        currentTasks.append(text)
+                        UserDefaults.standard.setValue(currentTasks, forKey: "tasks")
                         self?.tasks.append(text)
                         self?.table.reloadData()
                     }
