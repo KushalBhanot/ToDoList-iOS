@@ -7,6 +7,6 @@
 - [x] Adding new tasks take place in the main thread(DispatchQueue.main.async)
 
 ### Second Flag
-- [] Implement Data Persistence
+- [x] Implement Data Persistence using UserDefaults
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](https://forthebadge.com)
